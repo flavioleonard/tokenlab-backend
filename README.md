@@ -2,8 +2,8 @@
 Backend do projeto calendario
 
 [X] Criar usuário 
-[] Checar se o usuario ja existe
-[] Listar os usuarios 
-[] Buscar os usuarios pelo id
+[X] Checar se o usuario ja existe
+[X] Listar os usuarios 
+[X] Buscar os usuarios pelo id
 [] Atualizar usuario
 [] Tornar usuario um admin 
