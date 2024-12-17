@@ -1,0 +1,33 @@
+{
+  "name": "tokenlabback",
+  "version": "1.0.0",
+  "description": "Backend do projeto calendario",
+  "main": "server.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/flavioleonard/tokenlab-backend.git"
+  },
+  "author": "Flavio Leonardo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/flavioleonard/tokenlab-backend/issues"
+  },
+  "homepage": "https://github.com/flavioleonard/tokenlab-backend#readme",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "nodemon": "^3.1.9"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2"
+  }
+}
