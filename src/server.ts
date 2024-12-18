@@ -108,6 +108,19 @@ app.delete('/users/:userId', findUserById(usersBase), (req: express.Request, res
   return res.status(204).send();
 });
 
+app.delete('/events/:eventId', findEventById(eventsBase), (req: express.Request, res: express.Response) => {
+    const event = req.body.event;
+
+    const index = eventsBase.indexOf(event);
+
+    if (index === -1) {
+      return res.status(404).json({ error: "Event not found" });
+    }
+    eventsBase.splice(index, 1);
+    return res.status(204).send();
+
+})
+
 app.get("/", (req: express.Request, res: express.Response) => {
   res.send("Servidor rodando!");
 });
