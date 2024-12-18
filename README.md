@@ -5,5 +5,9 @@ Backend do projeto calendario
 [X] Checar se o usuario ja existe
 [X] Listar os usuarios 
 [X] Buscar os usuarios pelo id
-[] Atualizar usuario
-[] Tornar usuario um admin 
+[X] Atualizar usuario
+[X] Criar evento
+[X] Checar se o evento ja no horario especificado
+[X] Listar os eventos 
+[x] Buscar os eventos pelo id
+[] Atualizar evento

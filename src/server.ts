@@ -5,6 +5,7 @@ import {checkEventConflict} from "./middlewares/checkEventConflictDate";
 import { User } from "./@types/User";
 import { Event } from "./@types/Event";
 import { findUserById } from "./middlewares/findUserById";
+import { findEventById } from "./middlewares/findEventById";
 import { DateTime } from "luxon";
 
 const app = express.default(); // Use express.default()
@@ -50,7 +51,7 @@ app.post(
   }
 );
 
-
+//Listando Eventos 
 app.get("/events", (req: express.Request, res: express.Response) => {
   return res.status(200).json(eventsBase);
 })
@@ -65,6 +66,12 @@ app.get("/users/:userId", findUserById(usersBase), (req: express.Request, res: e
     const user = req.body.user;
     return res.status(200).json(user);
 });
+
+//Buscando eventos por ID 
+app.get("/events/:eventId", findEventById(eventsBase), (req: express.Request, res: express.Response) => {
+  const event = req.body.event;
+  return res.status(200).json(event);
+})
 
 // Atualizando usuário
 app.patch('/users/:userId', findUserById(usersBase), (req: express.Request, res: express.Response) => {
