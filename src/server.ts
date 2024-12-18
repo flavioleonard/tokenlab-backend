@@ -1,9 +1,11 @@
 import * as express from "express";
 import { v4 as uuidv4 } from "uuid";
 import { checkUserAlreadyExists } from "./middlewares/checkUsersExists";
+import {checkEventConflict} from "./middlewares/checkEventConflictDate";
 import { User } from "./@types/User";
 import { Event } from "./@types/Event";
 import { findUserById } from "./middlewares/findUserById";
+import { DateTime } from "luxon";
 
 const app = express.default(); // Use express.default()
 
@@ -28,25 +30,26 @@ app.post(
   }
 );
 
-//criar evento
+// Criar evento
 app.post(
   '/events',
+  checkEventConflict(eventsBase), // Middleware de validação
   (req: express.Request, res: express.Response) => {
-   
     const { description, title, startTime, endTime } = req.body;
-    
+
     const id = uuidv4();
     eventsBase.push({
       id,
       title,
       description,
-      startTime,
-      endTime
+      startTime: DateTime.fromISO(startTime),
+      endTime: DateTime.fromISO(endTime)
     });
 
     return res.status(201).json(eventsBase);
   }
 );
+
 
 app.get("/events", (req: express.Request, res: express.Response) => {
   return res.status(200).json(eventsBase);
