@@ -11,10 +11,6 @@ export function checkEventConflict(eventsBase: Event[]) {
       const conflict = eventsBase.some(event => {
         const existingStart = event.startTime
         const existingEnd = event.endTime
-
-        console.log("existingStart: ", existingStart.toISO());
-        console.log("existingEnd: ", existingEnd.toISO());
-  
         // Verifica se há sobreposição de horários
         return (
           (newStart >= existingStart && newStart < existingEnd) || 
