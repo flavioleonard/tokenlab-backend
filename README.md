@@ -6,8 +6,10 @@ Backend do projeto calendario
 [X] Listar os usuarios 
 [X] Buscar os usuarios pelo id
 [X] Atualizar usuario
+[X] Deletar usuario
 [X] Criar evento
 [X] Checar se o evento ja no horario especificado
 [X] Listar os eventos 
 [x] Buscar os eventos pelo id
 [] Atualizar evento
+[] Deletar evento

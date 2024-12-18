@@ -77,10 +77,22 @@ app.get("/events/:eventId", findEventById(eventsBase), (req: express.Request, re
 app.patch('/users/:userId', findUserById(usersBase), (req: express.Request, res: express.Response) => {
   const user = req.body.user;
   const { username } = req.body;
-  user.username = username;
-
+  if( username !== undefined) user.username = username
   return res.status(200).json(user);
 });
+
+//Atualizando evento
+app.patch('/events/:eventId', findEventById(eventsBase), (req: express.Request, res: express.Response) => {
+  const event = req.body.event
+  const { description, title, startTime, endTime } = req.body;
+  if (description !== undefined) event.description = description;
+  if (title !== undefined) event.title = title;
+  if (startTime !== undefined) event.startTime = DateTime.fromISO(startTime);
+  if (endTime !== undefined) event.endTime = DateTime.fromISO(endTime);
+
+  return res.status(200).json(event);
+})
+
 
 // Deletar usuário
 app.delete('/users/:userId', findUserById(usersBase), (req: express.Request, res: express.Response) => {
