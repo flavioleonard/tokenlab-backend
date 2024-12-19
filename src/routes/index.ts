@@ -7,5 +7,4 @@ const router = Router();
 router.use(userRouter);
 router.use(eventRouter);
 
-
 export default router;
