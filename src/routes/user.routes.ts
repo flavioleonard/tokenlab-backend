@@ -20,6 +20,10 @@ userRouter.post(
     createEventForUser
   );
 
+//TODO: rota para deletar evento especifico de usuario especifico
+
+//TODO: rota para alterar evento especifico de usuario especifico
+
 // Listando usuários
 userRouter.get("/users", listUsers);
 
