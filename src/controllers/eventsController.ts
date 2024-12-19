@@ -4,7 +4,7 @@ import eventsBase from "../data/eventsBase";
 import { DateTime } from "luxon";
 
 export function createEvent (request: Request, response: Response): Response {
-    const { description, title, startTime, endTime } = request.body;
+    const { description, title, startTime, endTime, userId } = request.body;
 
     const id = uuidv4();
     eventsBase.push({
@@ -12,7 +12,8 @@ export function createEvent (request: Request, response: Response): Response {
       title,
       description,
       startTime: DateTime.fromISO(startTime),
-      endTime: DateTime.fromISO(endTime)
+      endTime: DateTime.fromISO(endTime),
+      userId
     });
 
     return response.status(201).json(eventsBase);

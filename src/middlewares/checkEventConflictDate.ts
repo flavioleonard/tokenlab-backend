@@ -1,14 +1,18 @@
 import * as express from "express";
 import { Event } from "../@types/Event";
 import { DateTime } from "luxon";
+import { User } from "../@types/User";
 
 export function checkEventConflict(eventsBase: Event[]) {
     return (req: express.Request, res: express.Response, next: express.NextFunction) => {
       const { startTime, endTime } = req.body;
+      const user: User = req.body.user;
       const newStart = DateTime.fromISO(startTime);
       const newEnd = DateTime.fromISO(endTime);
+
+      
   
-      const conflict = eventsBase.some(event => {
+      const conflict = user.events.some(event => {
         const existingStart = event.startTime
         const existingEnd = event.endTime
         // Verifica se há sobreposição de horários
